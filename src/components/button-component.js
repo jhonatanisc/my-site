@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
-import PubSub from "../utils/PubSub";
-
+//import PubSub from "../utils/PubSub";
+import "pubsub.js";
 class ButtonComponent extends LitElement {
   static styles = css`
     :host {
@@ -25,7 +25,7 @@ class ButtonComponent extends LitElement {
   }
 
   emitIncrementEvent() {
-    PubSub.publish("increment-event");
+    pubsub.publish("increment-event");
   }
 }
 
