@@ -2,6 +2,7 @@ import { html, css, LitElement } from "lit";
 import { Router } from "@vaadin/router";
 import "./pages/home.page.js";
 import "./pages/about-page.js";
+import "./my-element.js";
 
 /**
  * An example element.
@@ -19,6 +20,7 @@ export class AppRoot extends LitElement {
 
   render() {
     return html`
+      <my-element></my-element>
       <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
