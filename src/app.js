@@ -1,5 +1,5 @@
 import { html, css, LitElement } from "lit";
-import { Router } from "@vaadin/router";
+import { initRouter } from "./router.js"; // Importar la función de inicialización del enrutador
 import "./pages/home.page.js";
 import "./pages/about-page.js";
 import "./my-element.js";
@@ -30,11 +30,8 @@ export class AppRoot extends LitElement {
   }
 
   firstUpdated() {
-    const router = new Router(this.shadowRoot.getElementById("outlet"));
-    router.setRoutes([
-      { path: "/", component: "home-page" },
-      { path: "/about", component: "about-page" },
-    ]);
+    const outlet = this.shadowRoot.getElementById("outlet");
+    initRouter(outlet); // Inicializar el enrutador con el contenedor correcto
   }
 }
 
