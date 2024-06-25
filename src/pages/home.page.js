@@ -19,13 +19,25 @@ class HomePage extends BasePage {
 
   render() {
     return html`
-      <h1>Bienvenido a mi sitio web</h1>
-      <p>Welcome to the home page!</p>
       <experience-card
         title="Creative Technologist Co-op"
         company="MullenLowe U.S."
-        period="July — Dec 2015"
+        period="Jul — Dic 2015"
         description="Developed, maintained, and shipped production code for client websites. Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more."
+        .skills="${["HTML", "CSS", "JavaScript", "jQuery"]}"
+      ></experience-card>
+      <experience-card
+        title="Creative Technologist Co-op"
+        company="MullenLowe U.S."
+        period="Jul — Dec 2015"
+        description="Developed, maintained, and shipped production code for client websites. Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more."
+        .skills="${["HTML", "CSS", "JavaScript", "jQuery"]}"
+      ></experience-card>
+      <experience-card
+        title="Creative Technologist Co-op"
+        company="MullenLowe U.S."
+        period="Ene — Mar 2015"
+        description="Developed."
         .skills="${["HTML", "CSS", "JavaScript", "jQuery"]}"
       ></experience-card>
   </br>
