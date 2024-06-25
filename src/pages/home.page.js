@@ -1,6 +1,8 @@
 import { html, css } from "lit";
 import { BasePage } from "../components/base_components/base-page";
-
+import "../components/experience-card";
+import "../components/skill-chart";
+import "../components/course-card";
 class HomePage extends BasePage {
   static styles = css`
     :host {
@@ -11,13 +13,40 @@ class HomePage extends BasePage {
 
   constructor() {
     super();
-    this.setPageTitle("Página de Inicio"); // Establecer el título de la página
   }
+
+  firstUpdated() {}
 
   render() {
     return html`
-      <h1>Home Page</h1>
+      <h1>Bienvenido a mi sitio web</h1>
       <p>Welcome to the home page!</p>
+      <experience-card
+        title="Creative Technologist Co-op"
+        company="MullenLowe U.S."
+        period="July — Dec 2015"
+        description="Developed, maintained, and shipped production code for client websites. Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more."
+        .skills="${["HTML", "CSS", "JavaScript", "jQuery"]}"
+      ></experience-card>
+  </br>
+      <skill-chart
+        .skills="${[
+          { name: "HTML", level: 80, levelText: "Avanzado" },
+          { name: "CSS", level: 70, levelText: "Intermedio" },
+          { name: "JavaScript", level: 90, levelText: "Experto" },
+          { name: "React", level: 60, levelText: "Intermedio" },
+          { name: "Node.js", level: 75, levelText: "Avanzado" },
+        ]}" 
+        nameChart="Habilidades"
+      ></skill-chart>
+
+      </br>
+      <course-card
+    nombreCurso="Curso de JavaScript Avanzado"
+    fechaFinalizacion="Junio 2023"
+    institucion="Universidad X"
+    tipo="curso"
+  ></course-card>
     `;
   }
 }
