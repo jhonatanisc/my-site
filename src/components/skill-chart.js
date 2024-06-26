@@ -20,13 +20,33 @@ class SkillChart extends LitElement {
       display: block;
       font-family: "Arial", sans-serif;
       border-radius: 8px;
-      width: 300px;
+      max-width: 500px;
 
-      --md-linear-progress-track-height: 16px;
-      --md-linear-progress-track-shape: 16px;
-      --md-linear-progress-active-indicator-height: 16px;
-      --md-sys-color-primary: #006d6d;
-      --md-sys-color-surface-container-highest: #cfcfcf;
+      --md-linear-progress-track-height: 2px;
+      --md-linear-progress-track-shape: 2px;
+      --md-linear-progress-active-indicator-height: 2px;
+      --md-sys-color-primary: #8a60a3;
+      --md-sys-color-surface-container-highest: #1b1b1b;
+    }
+    .container {
+      font-family: "Source Code Pro", monospace;
+
+      background-color: #0000002f;
+      padding: 0.5em;
+      margin-bottom: 0.5em;
+      border-radius: 5px;
+    }
+    .level-text {
+      font-size: 0.8rem;
+      display: block;
+      color: #a8a8a8;
+      text-align: right;
+      text-transform: uppercase;
+    }
+    .skill-text {
+      font-size: 0.8rem;
+      display: block;
+      text-transform: uppercase;
     }
   `;
 
@@ -36,11 +56,13 @@ class SkillChart extends LitElement {
         <h2>${this.nameChart}</h2>
         ${this.skills.map(
           (skill) => html`
-            <label>${skill.levelText}</label>
-            <md-linear-progress
-              value="${skill.level / 100}"
-            ></md-linear-progress>
-        </br>
+            <div class="container">
+              <label class="skill-text">${skill.name}</label>
+              <md-linear-progress
+                value="${skill.level / 100}"
+              ></md-linear-progress>
+              <label class="level-text">${skill.levelText}</label>
+            </div>
           `
         )}
       </div>

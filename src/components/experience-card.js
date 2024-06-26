@@ -42,13 +42,17 @@ class ExperienceCard extends LitElement {
       padding-bottom: 1rem;
       gap: 10px;
       margin-bottom: 1rem;
-      border-left: 1px solid #34a779;
+      border-left: 2px solid #34a779;
     }
     .time-line {
     }
 
     .data-exp {
       padding-left: 10px;
+      background-color: #0000002f;
+      padding: 0.5em;
+      margin-bottom: 0.5em;
+      border-radius: 5px;
     }
     .period {
       font-size: 0.9em;
@@ -97,12 +101,11 @@ class ExperienceCard extends LitElement {
           <div class="title">${this.title}</div>
           <div class="company">${this.company}</div>
           <div class="description">${this.description}</div>
-          <md-chip-set>
+          <!--<md-chip-set>
             ${this.skills.map(
-              (skill) =>
-                html`<md-assist-chip label="${skill}"></md-assist-chip>`
-            )}
-          </md-chip-set>
+            (skill) => html`<md-assist-chip label="${skill}"></md-assist-chip>`
+          )}
+          </md-chip-set>-->
         </div>
       </div>
     `;
