@@ -1,7 +1,6 @@
-import { LitElement, css, html } from 'lit'
-import litLogo from './assets/lit.svg'
-import viteLogo from '/vite.svg'
-
+import { LitElement, css, html } from "lit";
+import "./components/counter-component";
+import "./components/button-component";
 /**
  * An example element.
  *
@@ -20,37 +19,24 @@ export class MyElement extends LitElement {
        * The number of times the button has been clicked.
        */
       count: { type: Number },
-    }
+    };
   }
 
   constructor() {
-    super()
-    this.docsHint = 'Click on the Vite and Lit logos to learn more'
-    this.count = 0
+    super();
+    this.docsHint = "Click on the Vite and Lit logos to learn more";
+    this.count = 0;
   }
 
   render() {
     return html`
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src=${viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://lit.dev" target="_blank">
-          <img src=${litLogo} class="logo lit" alt="Lit logo" />
-        </a>
-      </div>
-      <slot></slot>
-      <div class="card">
-        <button @click=${this._onClick} part="button">
-          count is ${this.count}
-        </button>
-      </div>
-      <p class="read-the-docs">${this.docsHint}</p>
-    `
+      <counter-component></counter-component>
+      <button-component></button-component>
+    `;
   }
 
   _onClick() {
-    this.count++
+    this.count++;
   }
 
   static get styles() {
@@ -124,8 +110,8 @@ export class MyElement extends LitElement {
           background-color: #f9f9f9;
         }
       }
-    `
+    `;
   }
 }
 
-window.customElements.define('my-element', MyElement)
+window.customElements.define("my-element", MyElement);
