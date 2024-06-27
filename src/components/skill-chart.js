@@ -21,16 +21,14 @@ class SkillChart extends LitElement {
       font-family: "Arial", sans-serif;
       border-radius: 8px;
       max-width: 500px;
-
       --md-linear-progress-track-height: 2px;
       --md-linear-progress-track-shape: 2px;
       --md-linear-progress-active-indicator-height: 2px;
-      --md-sys-color-primary: #8a60a3;
+      --md-sys-color-primary: #8c58ab;
       --md-sys-color-surface-container-highest: #1b1b1b;
     }
     .container {
       font-family: "Source Code Pro", monospace;
-
       background-color: #0000002f;
       padding: 0.5em;
       margin-bottom: 0.5em;
@@ -48,12 +46,43 @@ class SkillChart extends LitElement {
       display: block;
       text-transform: uppercase;
     }
+    .title-chart {
+      display: grid;
+      grid-template-columns: 90% 10%;
+      align-items: end;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #8c58ab;
+    }
+    .title-chart label {
+      font-family: "Source Code Pro", monospace;
+      text-align: end;
+      color: #8c58ab;
+      font-size: 0.8rem;
+      bottom: 1px;
+      margin-right: 5px;
+      text-transform: uppercase;
+    }
+    .icon-container {
+      border-radius: 5px 5px 0px 0px;
+      text-align: center;
+      background-color: #8c58ab;
+    }
+    md-icon {
+      font-size: 1.2rem;
+      vertical-align: middle;
+      color: #ffffff;
+    }
   `;
 
   render() {
     return html`
       <div>
-        <h2>${this.nameChart}</h2>
+        <div class="title-chart">
+          <label>${this.nameChart}</label>
+          <div class="icon-container">
+            <md-icon>bolt</md-icon>
+          </div>
+        </div>
         ${this.skills.map(
           (skill) => html`
             <div class="container">

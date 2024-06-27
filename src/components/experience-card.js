@@ -29,22 +29,26 @@ class ExperienceCard extends LitElement {
       display: block;
       border-radius: 8px;
       max-width: 500px; /* Puedes ajustar este valor según tus necesidades */
-      --md-assist-chip-outline-color: #ffffff;
-      --md-assist-chip-label-text-color: #ffffff;
+      --md-assist-chip-outline-color: #34a779;
+      --md-assist-chip-label-text-color: #34a779;
       --md-assist-chip-label-text-size: 0.7rem;
       --md-assist-chip-elevated-container-color: #ffffff;
+      --_hover-label-text-color: #34a779;
+
       --md-assist-chip-container-height: 24px;
     }
     .container {
       display: grid;
-      grid-template-columns: 5% 95%;
+      grid-template-columns: 10% 90%;
       align-items: start;
       padding-bottom: 1rem;
-      gap: 10px;
       margin-bottom: 1rem;
-      border-left: 2px solid #34a779;
     }
     .time-line {
+      margin-right: 10px;
+      border-right: 2px solid #34a779;
+      height: 100%;
+      vertical-align: middle;
     }
 
     .data-exp {
@@ -83,10 +87,38 @@ class ExperienceCard extends LitElement {
       font-family: "Source Code Pro", monospace;
       writing-mode: vertical-rl;
       transform: rotate(180deg);
+      float: inline-end;
       font-size: 0.8em;
       color: #34a779;
       margin-top: 5px;
       text-transform: uppercase;
+    }
+    .icon-container {
+      text-align: center;
+      border-radius: 5px 0px 0px 5px;
+      background-color: #34a779;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      display: flex;
+      align-items: center;
+      border: 1px solid #34a779;
+      border-radius: 5px;
+      padding: 3px 10px;
+      font-size: 14px;
+      color: #34a779;
+      text-transform: uppercase;
+      text-decoration: bold;
+      font-size: 0.7rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   `;
 
@@ -94,18 +126,18 @@ class ExperienceCard extends LitElement {
     return html`
       <div class="container">
         <div class="time-line">
-          <md-icon>work</md-icon>
+          <div class="icon-container">
+            <md-icon>work</md-icon>
+          </div>
           <div class="vertical-period">${this.period}</div>
         </div>
         <div class="data-exp">
           <div class="title">${this.title}</div>
           <div class="company">${this.company}</div>
           <div class="description">${this.description}</div>
-          <!--<md-chip-set>
-            ${this.skills.map(
-            (skill) => html`<md-assist-chip label="${skill}"></md-assist-chip>`
-          )}
-          </md-chip-set>-->
+          <div class="tags">
+            ${this.skills.map((skill) => html`<div class="tag">${skill}</div>`)}
+          </div>
         </div>
       </div>
     `;
