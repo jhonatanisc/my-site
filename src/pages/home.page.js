@@ -19,6 +19,7 @@ class HomePage extends BasePage {
 
   render() {
     return html`
+    <h1>Experiencia</h1>
       <experience-card
         title="Creative Technologist Co-op"
         company="MullenLowe U.S."
@@ -41,6 +42,7 @@ class HomePage extends BasePage {
         .skills="${["HTML", "CSS", "JavaScript", "jQuery"]}"
       ></experience-card>
   </br>
+  <h1>Habilidades</h1>
       <skill-chart
         .skills="${[
           { name: "HTML", level: 80, levelText: "Avanzado" },
@@ -49,16 +51,19 @@ class HomePage extends BasePage {
           { name: "React", level: 60, levelText: "Intermedio" },
           { name: "Node.js", level: 75, levelText: "Avanzado" },
         ]}" 
-        nameChart="Habilidades"
+        nameChart="Lenguajes"
       ></skill-chart>
 
       </br>
+  <h1>Preparacion</h1>
+
       <course-card
-    nombreCurso="Curso de JavaScript Avanzado"
-    fechaFinalizacion="Junio 2023"
-    institucion="Universidad X"
-    tipo="curso"
-  ></course-card>
+        title="Ing. Sistenas Computacionales"
+        institution= "Tecnologico de Estudios Superiores de Ecatepec"
+        period="Ene — Mar 2015"
+        description="Developed."
+        type="Licenciatura"
+      ></course-card>
     `;
   }
 }
