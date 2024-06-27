@@ -2,7 +2,8 @@ import { html, css } from "lit";
 import { BasePage } from "../components/base_components/base-page";
 import "../components/experience-card";
 import "../components/skill-chart";
-import "../components/course-card";
+import "../components/CourseCard/CourseCard.js";
+import "../components/WelcomeSection/WelcomeSection.js";
 class HomePage extends BasePage {
   static styles = css`
     :host {
@@ -19,6 +20,7 @@ class HomePage extends BasePage {
 
   render() {
     return html`
+    <welcome-section></welcome-section>
     <h1>Experiencia</h1>
       <experience-card
         title="Creative Technologist Co-op"

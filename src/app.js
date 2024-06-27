@@ -4,8 +4,7 @@ import { navigateTo, goBack, goHome } from "./utils/Helm.js";
 import "@material/web/button/text-button.js";
 import "./pages/about-page.js";
 import "./pages/home.page.js";
-import "./components/menu-component.js";
-import "./components/welcome-section.js";
+import "./components/MenuComponent/MenuComponent.js";
 import "pubsub.js";
 
 /**
@@ -33,30 +32,15 @@ export class AppRoot extends LitElement {
     }
   `;
 
-  static properties = {
-    welcomeVisibility: { type: Boolean, attribute: false },
-  };
+  static properties = {};
 
   constructor() {
     super();
-    this.welcomeVisibility = true;
   }
 
   render() {
     return html`
-      <!--<nav>
-        <md-text-button @click="${() => goHome()}">Inicio</md-text-button>
-        <md-text-button>Portafolio</md-text-button>
-        <md-text-button @click="${() => navigateTo("/about")}"
-          >Sobre mi</md-text-button
-        >
-      </nav>-->
-
-      <welcome-section
-        style="display: ${this.welcomeVisibility ? "flex" : "none"};"
-      >
-      </welcome-section>
-      <menu-component></menu-component>
+      <!--<menu-component></menu-component>-->
       <main id="outlet"></main>
     `;
   }
@@ -66,7 +50,7 @@ export class AppRoot extends LitElement {
     initRouter(outlet); // Inicializar el enrutador con el contenedor correcto
   }
 
-  connectedCallback() {
+  /*connectedCallback() {
     super.connectedCallback();
     pubsub.subscribe(
       "welcome-visibility",
@@ -82,6 +66,7 @@ export class AppRoot extends LitElement {
     pubsub.unsubscribe("welcome-visibility", this.welcomeVisibility.bind(this));
     super.disconnectedCallback();
   }
+    */
 }
 
 customElements.define("app-root", AppRoot);
