@@ -4,11 +4,44 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-color);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+/* themes.css */
+:root {
+  --white:  #ffffff;
+  --black: #080808;
+  --green: #4CAF50;
+  --orange: #FF9800;
+  --orange-deep: #FF5722;
+  --red: #F44336;
+  --blue: #00BCD4;
+  --brown: #795548;
+  --yellow: #FFC107;
+  --purple: #9C27B0;
+  --indigo: #673AB7;
+  --sky-blue: #C8E0EF;
+  --pink: #8c58ab;
+  --slate-gray: #476476;
+  --light-gray: #E4E6E8;
+  --white-transparent: #ffffff88;
+  --black-transparent: #00000088;
+  --gray:#a0a0a0;
+
+
+  --text-gray: var(--gray);
+  --background-transparent: var(--white-transparent);
+  --text-color: var(--slate-gray);
+  --background-color: var(--light-gray);
+}
+
+html[theme="dark"] {
+  --background-color: var(--slate-gray);
+  --text-color: var(--light-gray);
+  --background-transparent: var(--black-transparent);
 }
