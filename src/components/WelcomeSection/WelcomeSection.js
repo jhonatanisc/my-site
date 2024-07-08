@@ -11,30 +11,10 @@ class WelcomeSection extends LitElement {
     this.visibility = true;
   }
 
-  toggleIcon() {
-    const label = this.shadowRoot.querySelector(".dark-mode-toggle label");
-    const checkbox = this.shadowRoot.querySelector("#darkModeToggle");
-    if (checkbox.checked) {
-      label.innerHTML = "<md-icon>dark_mode</md-icon>";
-    } else {
-      label.innerHTML = "<md-icon>light_mode</md-icon>";
-    }
-  }
-
-  firstUpdated() {
-    this.shadowRoot
-      .querySelector("#darkModeToggle")
-      .addEventListener("change", this.toggleIcon.bind(this));
-    // Set initial state
-    this.toggleIcon();
-  }
+  firstUpdated() {}
 
   render() {
     return html`
-      <div class="dark-mode-toggle">
-        <input type="checkbox" id="darkModeToggle" />
-        <label for="darkModeToggle"><md-icon>light_mode</md-icon></label>
-      </div>
       <div class="container">
         <h1>Hola! <md-icon>waving_hand</md-icon></h1>
         <p class="center-text terminal-text">

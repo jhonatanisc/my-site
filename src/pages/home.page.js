@@ -1,7 +1,7 @@
 import { html, css } from "lit";
 import { BasePage } from "../components/base_components/base-page";
-import "../components/experience-card";
-import "../components/skill-chart";
+import "../components/ExperienceCard/ExperienceCard.js";
+import "../components/SkillChart/SkillChart.js";
 import "../components/CourseCard/CourseCard.js";
 import "../components/WelcomeSection/WelcomeSection.js";
 class HomePage extends BasePage {
@@ -15,8 +15,6 @@ class HomePage extends BasePage {
   constructor() {
     super();
   }
-
-  firstUpdated() {}
 
   render() {
     return html`

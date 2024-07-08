@@ -10,7 +10,7 @@ export const welcomeSectionStyles = css`
     font-family: "Arial", sans-serif;
   }
   md-icon {
-    color: #00e48c;
+    color: var(--slate-gray);
     vertical-align: middle;
   }
   @media (max-width: 768px) {
@@ -42,20 +42,6 @@ export const welcomeSectionStyles = css`
   .container {
     padding: 1rem;
     text-align: center;
-  }
-
-  .dark-mode-toggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .dark-mode-toggle input {
-    display: none;
-  }
-
-  .dark-mode-toggle label {
-    cursor: pointer;
   }
 
   .highlight {
