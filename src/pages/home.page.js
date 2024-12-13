@@ -8,7 +8,23 @@ class HomePage extends BasePage {
   static styles = css`
     :host {
       display: block;
-      padding: 16px;
+      margin: 16px;
+    }
+    #welcome-item {
+      height: 100vh; /* Altura inicial o cualquier valor inicial */
+      transition: height 0.3s ease-in-out; /* Transición suave */
+    }
+    #welcome-item.highlighted {
+      height: 20vh; /* Altura reducida cuando se destaca */
+    }
+
+    .box {
+      display: flex;
+      justify-content: space-around;
+    }
+    .flex-item {
+      padding: 1rem;
+      flex: 1 1 400px;
     }
   `;
 
@@ -18,8 +34,10 @@ class HomePage extends BasePage {
 
   render() {
     return html`
-    <welcome-section></welcome-section>
-    <h1>Experiencia</h1>
+<welcome-section id="welcome-item"></welcome-section>
+<div class="box">
+  <div class="flex-item">
+  <h1>Experiencia</h1>
       <experience-card
         title="Creative Technologist Co-op"
         company="MullenLowe U.S."
@@ -41,7 +59,8 @@ class HomePage extends BasePage {
         description="Developed."
         .skills="${["HTML", "CSS", "JavaScript", "jQuery"]}"
       ></experience-card>
-  </br>
+  </div>
+  <div class="flex-item">
   <h1>Habilidades</h1>
       <skill-chart
         .skills="${[
@@ -53,18 +72,40 @@ class HomePage extends BasePage {
         ]}" 
         nameChart="Lenguajes"
       ></skill-chart>
-
-      </br>
+  </div>
+  <div class="flex-item">
   <h1>Preparacion</h1>
 
-      <course-card
-        title="Ing. Sistenas Computacionales"
-        institution= "Tecnologico de Estudios Superiores de Ecatepec"
-        period="Ene — Mar 2015"
-        description="Developed."
-        type="Licenciatura"
-      ></course-card>
+<course-card
+  title="Ing. Sistenas Computacionales"
+  institution= "Tecnologico de Estudios Superiores de Ecatepec"
+  period="Ene — Mar 2015"
+  description="Developed."
+  type="Licenciatura"
+></course-card>
+  </div>
+
+</div>
+ 
+  </br>
+  
+
+      </br>
+  
     `;
+  }
+
+  firstUpdated() {
+    super.firstUpdated();
+    const welcomeItem = this.shadowRoot.getElementById("welcome-item");
+    document.addEventListener("scroll", function () {
+      if (window.scrollY !== 0) {
+        welcomeItem.classList.add("highlighted");
+      }
+      if (window.scrollY < 0) {
+        welcomeItem.classList.remove("highlighted");
+      }
+    });
   }
 }
 

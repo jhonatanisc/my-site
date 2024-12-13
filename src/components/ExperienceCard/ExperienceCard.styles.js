@@ -4,7 +4,7 @@ export const ExperienceCardStyle = css`
   :host {
     display: block;
     border-radius: 8px;
-    max-width: 500px;
+    //max-width: 500px;
     --md-assist-chip-outline-color: var(--green);
     --md-assist-chip-label-text-color: var(--green);
     --md-assist-chip-label-text-size: 0.7rem;

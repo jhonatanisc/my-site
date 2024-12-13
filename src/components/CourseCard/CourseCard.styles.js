@@ -4,7 +4,7 @@ export const CourseCardStyle = css`
   :host {
     display: block;
     border-radius: 8px;
-    max-width: 500px; /* Puedes ajustar este valor según tus necesidades */
+    //max-width: 500px; /* Puedes ajustar este valor según tus necesidades */
     --md-assist-chip-outline-color: var(--yellow);
     --md-assist-chip-label-text-color: var(--yellow);
     --md-assist-chip-label-text-size: 0.7rem;
@@ -32,10 +32,7 @@ export const CourseCardStyle = css`
     margin-bottom: 0.5em;
     border-radius: 5px;
   }
-  .period {
-    font-size: 0.9em;
-    color: #ffffff;
-  }
+
   .title {
     font-size: 1.2em;
     font-weight: bold;

@@ -5,7 +5,7 @@ export const SkillChartStyle = css`
     display: block;
     font-family: "Arial", sans-serif;
     border-radius: 8px;
-    max-width: 500px;
+    //max-width: 500px;
     --md-linear-progress-track-height: 3px;
     --md-linear-progress-track-shape: 3px;
     --md-linear-progress-active-indicator-height: 3px;
