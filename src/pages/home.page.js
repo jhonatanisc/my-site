@@ -1,13 +1,30 @@
 import { html, css } from "lit";
 import { BasePage } from "../components/base_components/base-page";
-import "../components/experience-card";
-import "../components/skill-chart";
-import "../components/course-card";
+import "../components/ExperienceCard/ExperienceCard.js";
+import "../components/SkillChart/SkillChart.js";
+import "../components/CourseCard/CourseCard.js";
+import "../components/WelcomeSection/WelcomeSection.js";
 class HomePage extends BasePage {
   static styles = css`
     :host {
       display: block;
-      padding: 16px;
+      margin: 16px;
+    }
+    #welcome-item {
+      height: 100vh; /* Altura inicial o cualquier valor inicial */
+      transition: height 0.3s ease-in-out; /* Transición suave */
+    }
+    #welcome-item.highlighted {
+      height: 20vh; /* Altura reducida cuando se destaca */
+    }
+
+    .box {
+      display: flex;
+      justify-content: space-around;
+    }
+    .flex-item {
+      padding: 1rem;
+      flex: 1 1 400px;
     }
   `;
 
@@ -15,10 +32,12 @@ class HomePage extends BasePage {
     super();
   }
 
-  firstUpdated() {}
-
   render() {
     return html`
+<welcome-section id="welcome-item"></welcome-section>
+<div class="box">
+  <div class="flex-item">
+  <h1>Experiencia</h1>
       <experience-card
         title="Creative Technologist Co-op"
         company="MullenLowe U.S."
@@ -40,7 +59,9 @@ class HomePage extends BasePage {
         description="Developed."
         .skills="${["HTML", "CSS", "JavaScript", "jQuery"]}"
       ></experience-card>
-  </br>
+  </div>
+  <div class="flex-item">
+  <h1>Habilidades</h1>
       <skill-chart
         .skills="${[
           { name: "HTML", level: 80, levelText: "Avanzado" },
@@ -49,17 +70,42 @@ class HomePage extends BasePage {
           { name: "React", level: 60, levelText: "Intermedio" },
           { name: "Node.js", level: 75, levelText: "Avanzado" },
         ]}" 
-        nameChart="Habilidades"
+        nameChart="Lenguajes"
       ></skill-chart>
+  </div>
+  <div class="flex-item">
+  <h1>Preparacion</h1>
+
+<course-card
+  title="Ing. Sistenas Computacionales"
+  institution= "Tecnologico de Estudios Superiores de Ecatepec"
+  period="Ene — Mar 2015"
+  description="Developed."
+  type="Licenciatura"
+></course-card>
+  </div>
+
+</div>
+ 
+  </br>
+  
 
       </br>
-      <course-card
-    nombreCurso="Curso de JavaScript Avanzado"
-    fechaFinalizacion="Junio 2023"
-    institucion="Universidad X"
-    tipo="curso"
-  ></course-card>
+  
     `;
+  }
+
+  firstUpdated() {
+    super.firstUpdated();
+    const welcomeItem = this.shadowRoot.getElementById("welcome-item");
+    document.addEventListener("scroll", function () {
+      if (window.scrollY !== 0) {
+        welcomeItem.classList.add("highlighted");
+      }
+      if (window.scrollY < 0) {
+        welcomeItem.classList.remove("highlighted");
+      }
+    });
   }
 }
 
