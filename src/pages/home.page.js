@@ -3,7 +3,7 @@ import { BasePage } from "../components/base_components/base-page";
 import "../components/ExperienceCard/ExperienceCard.js";
 import "../components/SkillChart/SkillChart.js";
 import "../components/CourseCard/CourseCard.js";
-import "../components/WelcomeSection/WelcomeSection.js";
+import "../components/SectionComponent/SectionComponent.js";
 import "../components/WelcomeComponent/WelcomeComponent.js";
 import "../components/ProfileComponent/ProfileComponent.js";
 class HomePage extends BasePage {
@@ -11,7 +11,7 @@ class HomePage extends BasePage {
   :host {
       display: block;
       align-items: center;
-  }
+    }
 
   .container {
     display: flex;
@@ -26,7 +26,7 @@ class HomePage extends BasePage {
       display: flex;
       justify-content: space-around;
   }
-
+      
   .flex-item {
       padding: 1rem;
       flex: 1 1 400px;
@@ -40,10 +40,10 @@ class HomePage extends BasePage {
   render() {
     return html`
     <div class="container">
-    <welcome-section id="welcome-item">
-<welcome-component slot="left"></welcome-component>
-<profile-component slot="right"></profile-component>
-</welcome-section>
+    <section-component>
+      <welcome-component slot="left"></welcome-component>
+      <profile-component slot="right"></profile-component>
+    </section-component>
 <div class="box">
   <div class="flex-item">
   <h1>Experiencia</h1>
