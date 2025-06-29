@@ -33,7 +33,7 @@ class ThemeToggle extends LitElement {
         />
         <label for="darkModeToggle">
           <md-icon
-            >${this.theme === "light" ? "light_mode" : "dark_mode"}</md-icon
+            >${this.theme === "light" ? "dark_mode" : "light_mode"}</md-icon
           >
         </label>
       </div>

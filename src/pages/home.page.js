@@ -4,28 +4,33 @@ import "../components/ExperienceCard/ExperienceCard.js";
 import "../components/SkillChart/SkillChart.js";
 import "../components/CourseCard/CourseCard.js";
 import "../components/WelcomeSection/WelcomeSection.js";
+import "../components/WelcomeComponent/WelcomeComponent.js";
+import "../components/ProfileComponent/ProfileComponent.js";
 class HomePage extends BasePage {
   static styles = css`
-    :host {
+  :host {
       display: block;
-      margin: 16px;
-    }
-    #welcome-item {
-      height: 100vh; /* Altura inicial o cualquier valor inicial */
-      transition: height 0.3s ease-in-out; /* Transición suave */
-    }
-    #welcome-item.highlighted {
-      height: 20vh; /* Altura reducida cuando se destaca */
-    }
+      align-items: center;
+  }
 
-    .box {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .box {
       display: flex;
       justify-content: space-around;
-    }
-    .flex-item {
+  }
+
+  .flex-item {
       padding: 1rem;
       flex: 1 1 400px;
-    }
+  }
   `;
 
   constructor() {
@@ -34,7 +39,11 @@ class HomePage extends BasePage {
 
   render() {
     return html`
-<welcome-section id="welcome-item"></welcome-section>
+    <div class="container">
+    <welcome-section id="welcome-item">
+<welcome-component slot="left"></welcome-component>
+<profile-component slot="right"></profile-component>
+</welcome-section>
 <div class="box">
   <div class="flex-item">
   <h1>Experiencia</h1>
@@ -64,12 +73,12 @@ class HomePage extends BasePage {
   <h1>Habilidades</h1>
       <skill-chart
         .skills="${[
-          { name: "HTML", level: 80, levelText: "Avanzado" },
-          { name: "CSS", level: 70, levelText: "Intermedio" },
-          { name: "JavaScript", level: 90, levelText: "Experto" },
-          { name: "React", level: 60, levelText: "Intermedio" },
-          { name: "Node.js", level: 75, levelText: "Avanzado" },
-        ]}" 
+        { name: "HTML", level: 80, levelText: "Avanzado" },
+        { name: "CSS", level: 70, levelText: "Intermedio" },
+        { name: "JavaScript", level: 90, levelText: "Experto" },
+        { name: "React", level: 60, levelText: "Intermedio" },
+        { name: "Node.js", level: 75, levelText: "Avanzado" },
+      ]}" 
         nameChart="Lenguajes"
       ></skill-chart>
   </div>
@@ -86,18 +95,14 @@ class HomePage extends BasePage {
   </div>
 
 </div>
- 
-  </br>
-  
 
-      </br>
-  
+    </div>
     `;
   }
 
   firstUpdated() {
     super.firstUpdated();
-    const welcomeItem = this.shadowRoot.getElementById("welcome-item");
+    /*const welcomeItem = this.shadowRoot.getElementById("welcome-item");
     document.addEventListener("scroll", function () {
       if (window.scrollY !== 0) {
         welcomeItem.classList.add("highlighted");
@@ -105,7 +110,7 @@ class HomePage extends BasePage {
       if (window.scrollY < 0) {
         welcomeItem.classList.remove("highlighted");
       }
-    });
+    });*/
   }
 }
 
