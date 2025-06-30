@@ -6,6 +6,7 @@ import "../components/CourseCard/CourseCard.js";
 import "../components/SectionComponent/SectionComponent.js";
 import "../components/WelcomeComponent/WelcomeComponent.js";
 import "../components/ProfileComponent/ProfileComponent.js";
+import "../components/TitleSection/TitleSection.js"
 class HomePage extends BasePage {
   static styles = css`
   :host {
@@ -45,7 +46,11 @@ class HomePage extends BasePage {
       <profile-component slot="right"></profile-component>
     </section-component>
     <section-component>
-      <welcome-component slot="left"></welcome-component>
+      <title-section
+      slot="left"
+      title="Mis Poderes"
+      description="Estas son las tecnologías y herramientas que forman parte de mi día a día como desarrollador. Algunas son esenciales, otras complementan mis proyectos cuando el reto lo exige."
+      ></title-section>
     <div slot="right">
       <skill-chart
         .skills="${[
