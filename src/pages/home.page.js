@@ -44,6 +44,31 @@ class HomePage extends BasePage {
       <welcome-component slot="left"></welcome-component>
       <profile-component slot="right"></profile-component>
     </section-component>
+    <section-component>
+      <welcome-component slot="left"></welcome-component>
+    <div slot="right">
+      <skill-chart
+        .skills="${[
+        { name: "HTML", level: 80, levelText: "Avanzado" },
+        { name: "CSS", level: 70, levelText: "Intermedio" },
+        { name: "JavaScript", level: 90, levelText: "Experto" },
+        { name: "React", level: 60, levelText: "Intermedio" },
+        { name: "Node.js", level: 75, levelText: "Avanzado" },
+      ]}" 
+        nameChart="Frontend Web"
+      ></skill-chart>
+      <skill-chart
+        .skills="${[
+        { name: "HTML", level: 80, levelText: "Avanzado" },
+        { name: "CSS", level: 70, levelText: "Intermedio" },
+        { name: "JavaScript", level: 90, levelText: "Experto" },
+        { name: "React", level: 60, levelText: "Intermedio" },
+        { name: "Node.js", level: 75, levelText: "Avanzado" },
+      ]}" 
+        nameChart="Mobile Dev"
+      ></skill-chart>
+      </div>
+    </section-component>
 <div class="box">
   <div class="flex-item">
   <h1>Experiencia</h1>

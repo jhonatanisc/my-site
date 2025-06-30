@@ -7,6 +7,7 @@ class SkillChart extends LitElement {
     return {
       skills: { type: Array },
       nameChart: { type: String },
+      color: { type: String }
     };
   }
 
@@ -14,6 +15,7 @@ class SkillChart extends LitElement {
     super();
     this.nameChart;
     this.skills = [];
+    this.color;
   }
 
   static styles = SkillChartStyle;
@@ -28,7 +30,7 @@ class SkillChart extends LitElement {
           </div>
         </div>
         ${this.skills.map(
-          (skill) => html`
+      (skill) => html`
             <div class="container">
               <label class="skill-text">${skill.name}</label>
               <md-linear-progress
@@ -37,7 +39,7 @@ class SkillChart extends LitElement {
               <label class="level-text">${skill.levelText}</label>
             </div>
           `
-        )}
+    )}
       </div>
     `;
   }
