@@ -9,8 +9,8 @@ export const profileComponentStyles = css`
     }
 
     .profile-picture {
-      width: 20em;
-      height: 20em;
+      width: 15em;
+      height: 15em;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

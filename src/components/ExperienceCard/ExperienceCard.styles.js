@@ -11,6 +11,7 @@ export const ExperienceCardStyle = css`
     --md-assist-chip-elevated-container-color: var(--white);
     --_hover-label-text-color: var(--green);
     --md-assist-chip-container-height: 24px;
+    font-family: "Playfair Display", serif;
   }
 
   .container {
@@ -56,7 +57,7 @@ export const ExperienceCardStyle = css`
   }
 
   .vertical-period {
-    font-family: "Source Code Pro", monospace;
+    font-family: "Fira Code", monospace;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     float: inline-end;
@@ -80,6 +81,7 @@ export const ExperienceCardStyle = css`
   }
 
   .tag {
+  font-family: "Fira Code", monospace;
     display: flex;
     align-items: center;
     border: 1px solid var(--green);
@@ -88,7 +90,6 @@ export const ExperienceCardStyle = css`
     font-size: 0.7rem;
     color: var(--green);
     text-transform: uppercase;
-    font-weight: bold;
     text-align: center;
   }
 

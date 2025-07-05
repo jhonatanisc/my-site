@@ -55,7 +55,7 @@ export const CourseCardStyle = css`
     color: #ffffff;
   }
   .vertical-period {
-    font-family: "Source Code Pro", monospace;
+    font-family: "Fira Code", monospace;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     float: inline-end;

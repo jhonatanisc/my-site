@@ -5,8 +5,12 @@ import { darkTheme } from "./themes/DarkTheme.styles.js";
 import "@material/web/button/text-button.js";
 import "./pages/about-page.js";
 import "./pages/home.page.js";
+import "./pages/home-page.js";
 import "./components/MenuComponent/MenuComponent.js";
 import "./components/ThemeToggle/ThemeToggle.js";
+import "./components/SideComponent/SideComponent.js";
+import "./components/ProfileComponent/ProfileComponent.js";
+import "./components/SimpleMenu/SimpleMenu.js";
 import "pubsub.js";
 
 /**
@@ -31,6 +35,22 @@ export class AppRoot extends LitElement {
         display: block;
       }
 
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        width: 100%;
+      }
+      .side {
+        display: flex;
+        flex-direction: column;
+      }
+      social-media-icons {
+        margin-top: auto;
+      }
+
       @media (max-width: 768px) {
         /* Cambiar en dispositivos móviles */
       }
@@ -47,9 +67,19 @@ export class AppRoot extends LitElement {
 
   render() {
     return html`
-      <!--<menu-component></menu-component>-->
-      <main id="outlet"></main>
-      <theme-toggle></theme-toggle>
+    <div class="container">
+    <!--<menu-component></menu-component>-->
+      <side-component>
+        <div slot="left" class="side">
+          <profile-component></profile-component> 
+          <social-media-icons></social-media-icons>
+        </div>
+        <div slot="right">
+          <main id="outlet"></main>
+        </div>
+      </side-component>
+    </div>
+    <theme-toggle></theme-toggle>
     `;
   }
 

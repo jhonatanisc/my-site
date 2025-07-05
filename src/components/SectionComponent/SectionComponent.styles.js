@@ -7,6 +7,7 @@ export const sectionComponentStyles = css`
     max-width: 1440px;
     width: 100%;
     height: 100vh;
+    
   }
     .box {
       display: flex;
@@ -16,6 +17,6 @@ export const sectionComponentStyles = css`
   .flex-item {
       padding: 0rem;
       flex: 1 1 300px;
-      
+      padding: 1rem;
   }
 `;

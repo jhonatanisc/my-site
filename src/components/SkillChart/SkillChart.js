@@ -20,6 +20,19 @@ class SkillChart extends LitElement {
 
   static styles = SkillChartStyle;
 
+  firstUpdated() {
+    if (this.color?.startsWith("--")) {
+      // Si es una variable CSS, como "--purple"
+      const resolvedColor = getComputedStyle(document.documentElement).getPropertyValue(this.color)?.trim();
+      if (resolvedColor) {
+        this.style.setProperty("--white", resolvedColor);
+      }
+    } else if (this.color) {
+      // Si es un valor directo como "#f44336"
+      this.style.setProperty("--white", this.color);
+    }
+  }
+
   render() {
     return html`
       <div>
