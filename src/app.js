@@ -6,11 +6,14 @@ import "@material/web/button/text-button.js";
 import "./pages/about-page.js";
 import "./pages/home.page.js";
 import "./pages/home-page.js";
+import "./pages/index-page.js";
 import "./components/MenuComponent/MenuComponent.js";
 import "./components/ThemeToggle/ThemeToggle.js";
 import "./components/SideComponent/SideComponent.js";
 import "./components/ProfileComponent/ProfileComponent.js";
 import "./components/SimpleMenu/SimpleMenu.js";
+import "./components/TimeLineMenu/TimeLineMenu.js";
+import "./components/NavbarComponent/NavbarComponent.js";
 import "pubsub.js";
 
 /**
@@ -39,16 +42,14 @@ export class AppRoot extends LitElement {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        min-height: 100vh;
         width: 100%;
       }
-      .side {
-        display: flex;
-        flex-direction: column;
-      }
-      social-media-icons {
-        margin-top: auto;
+      main {
+        flex: 1;
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        box-sizing: border-box;
       }
 
       @media (max-width: 768px) {
@@ -68,18 +69,8 @@ export class AppRoot extends LitElement {
   render() {
     return html`
     <div class="container">
-    <!--<menu-component></menu-component>-->
-      <side-component>
-        <div slot="left" class="side">
-          <profile-component></profile-component> 
-          <social-media-icons></social-media-icons>
-        </div>
-        <div slot="right">
-          <main id="outlet"></main>
-        </div>
-      </side-component>
+      <main id="outlet"></main>
     </div>
-    <theme-toggle></theme-toggle>
     `;
   }
 

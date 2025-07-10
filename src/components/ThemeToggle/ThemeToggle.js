@@ -45,9 +45,10 @@ class ThemeToggle extends LitElement {
       color: var(--text-color);
     }
     .dark-mode-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .dark-mode-toggle input {
