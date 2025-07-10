@@ -10,13 +10,17 @@ export class NavbarComponent extends LitElement {
 
   constructor() {
     super();
-    this.showLogoDesktop = true;
-    this.showLogoMobile = true;
+    this.showLogoDesktop = false;
+    this.showLogoMobile = false;
     this.menuOpen = false;
   }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+  }
+
+  handleMobileLinkClick() {
+    this.menuOpen = false;
   }
 
   static styles = css`
@@ -31,11 +35,12 @@ export class NavbarComponent extends LitElement {
       position: sticky;
       top: 0;
       z-index: 1000;
-      color: var(--text-color);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: .9rem;
+      padding: 0.9rem;
+      background-color: var(--background-color);
+      color: var(--text-color);
     }
 
     .logo {
@@ -43,6 +48,14 @@ export class NavbarComponent extends LitElement {
       flex-direction: column;
       font-size: 0.9rem;
       color: var(--text-color);
+      min-width: 120px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .logo.hidden {
+      opacity: 0;
+      transform: translateY(-10%);
+      visibility: hidden;
     }
 
     .links {
@@ -60,6 +73,7 @@ export class NavbarComponent extends LitElement {
     }
 
     .link:hover {
+      color: var(--accent-color, #f39c12);
     }
 
     .menu-icon {
@@ -117,10 +131,10 @@ export class NavbarComponent extends LitElement {
   renderLogo(type) {
     const isDesktop = type === 'desktop';
     const shouldShow = isDesktop ? this.showLogoDesktop : this.showLogoMobile;
-    if (!shouldShow) return null;
+    const logoClass = `logo ${type} ${shouldShow ? '' : 'hidden'}`;
 
     return html`
-      <div class="logo ${type}">
+      <div class="${logoClass}">
         <strong>Jhonatan Vázquez</strong>
         <span style="font-size: 0.75rem;">Desarrollador FullStack</span>
       </div>
@@ -135,21 +149,21 @@ export class NavbarComponent extends LitElement {
         ${this.renderLogo('desktop')}
 
         <div class="links">
-          ${links.map(
-      (item) => html`<a class="link" href="#">${item}</a>`
-    )}
+          ${links.map(item => html`
+            <a class="link" href="#">${item}</a>
+          `)}
           <theme-toggle></theme-toggle>
         </div>
 
         ${this.renderLogo('mobile')}
 
-        <div class="menu-icon" @click="${this.toggleMenu}">☰</div>
+        <div class="menu-icon" role="button" aria-label="Abrir menú" @click="${this.toggleMenu}">☰</div>
       </nav>
 
       <div class="mobile-menu" ?hidden="${!this.menuOpen}">
-        ${links.map(
-      (item) => html`<a class="link" href="#">${item}</a>`
-    )}
+        ${links.map(item => html`
+          <a class="link" href="#" @click="${this.handleMobileLinkClick}">${item}</a>
+        `)}
         <theme-toggle></theme-toggle>
       </div>
     `;

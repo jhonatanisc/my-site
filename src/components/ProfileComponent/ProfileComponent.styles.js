@@ -5,7 +5,7 @@ export const profileComponentStyles = css`
       display: block;
       font-family: 'Fira Code', regular, monospace;
       text-align: center;
-      padding: 2rem 1rem;
+      padding:1rem;
     }
 
     .profile-picture {
@@ -24,7 +24,6 @@ export const profileComponentStyles = css`
 
     .title {
       font-size: 1rem;
-      margin-bottom: 2rem;
     }
 
     .links {

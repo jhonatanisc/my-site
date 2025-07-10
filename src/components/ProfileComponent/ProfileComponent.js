@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { profileComponentStyles } from './ProfileComponent.styles.js';
 import bootstrapIcons from 'bootstrap-icons/font/bootstrap-icons.css?inline'; // solo con Vite o loaders
+import "../SocialMediaIcons/SocialMediaIcons.js";
 export class ProfileComponent extends LitElement {
   static styles = [
     profileComponentStyles,
@@ -15,6 +16,7 @@ export class ProfileComponent extends LitElement {
       <img class="profile-picture" src="https://avatars.githubusercontent.com/u/12345678?v=4" alt="Eric Jhonatan Vazquez Gomez" />
       <div class="name">Eric Jhonatan Vazquez Gomez</div>
       <div class="title">Desarrollador FullStack</div>
+      <social-media-icons></social-media-icons>
        
     `;
   }

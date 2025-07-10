@@ -1,42 +1,41 @@
-import { css } from "lit";
+import { css } from 'lit';
 
 export const welcomeComponentStyles = css`
   :host {
     display: flex;
-    height: 100%;
-    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    
   }
 
-    @keyframes blink {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  .container {
+    text-align: center;
+  }
+
+  .hello-world {
+    font-family: "Fira Code", monospace;
+    font-size: 2.3rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
   }
 
   .terminal-text::after {
     content: "_";
     animation: blink 1s infinite;
   }
-    p {
-    font-family: "Playfair Display", serif;
-    font-size: 2.3em;
-    text-align: left;
+
+  p {
+    margin-top: 1rem;
+    font-family: "Hind Vadodara", sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+
   }
-  span.hello-world {
-    display:block;
-    font-family: "Fira Code", monospace;
-    font-size: 3.5em;
-    color: #fff;
-    text-align: left;
-    padding-left: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.8);
-    max-width: 500px;
-    border-radius: 8px;
-  }    
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
 `;

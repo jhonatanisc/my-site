@@ -25,17 +25,42 @@ import "pubsub.js";
 export class AppRoot extends LitElement {
   static properties = {
     theme: { type: String },
+    scrolled: { type: Boolean },
   };
 
   constructor() {
     super();
     this.theme = localStorage.getItem("theme") || "light"; // obtener el tema guardado
+    this.scrolled = false;
   }
 
   static get styles() {
     return css`
       :host {
         display: block;
+      }
+
+      .navbar-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .navbar-inner {
+        max-width: 1024px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .sticky {
+        position: sticky;
+        top: 0;
+      }
+
+      .relative {
+        position: relative;
       }
 
       .container {
@@ -69,6 +94,14 @@ export class AppRoot extends LitElement {
   render() {
     return html`
     <div class="container">
+      <div class="navbar-wrapper  ${this.scrolled ? 'sticky' : 'relative'}">
+        <div class="navbar-inner">
+          <navbar-component
+            showLogoDesktop="${this.scrolled}"
+            showLogoMobile="${this.scrolled}"
+          ></navbar-component>
+        </div>
+      </div>
       <main id="outlet"></main>
     </div>
     `;
@@ -77,6 +110,9 @@ export class AppRoot extends LitElement {
   firstUpdated() {
     const outlet = this.shadowRoot.getElementById("outlet");
     initRouter(outlet); // Inicializar el enrutador con el contenedor correcto
+    window.addEventListener("scroll", () => {
+      this.scrolled = window.scrollY > 0;
+    });
   }
 }
 
