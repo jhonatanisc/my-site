@@ -14,7 +14,7 @@ export const welcomeComponentStyles = css`
 
   .hello-world {
     font-family: "Fira Code", monospace;
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 0.3rem 0.6rem;
@@ -37,5 +37,14 @@ export const welcomeComponentStyles = css`
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+
+  @media (max-width: 768px) {
+    
+  }
+  @media (min-width: 768px) {
+   .container {
+      text-align: left;
+    }
   }
 `;

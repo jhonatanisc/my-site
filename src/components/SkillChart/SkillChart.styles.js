@@ -6,9 +6,9 @@ export const SkillChartStyle = css`
     font-family: "Fira Code", mnospace;
     border-radius: 8px;
     //max-width: 500px;
-    --md-linear-progress-track-height: 5px;
-    --md-linear-progress-track-shape: 5px;
-    --md-linear-progress-active-indicator-height: 5px;
+    --md-linear-progress-track-height: 12px;
+    --md-linear-progress-track-shape: 12px;
+    --md-linear-progress-active-indicator-height: 12px;
     --md-sys-color-primary: var(--white);
     --md-sys-color-surface-container-highest: transparent;
   }
