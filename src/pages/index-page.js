@@ -136,6 +136,29 @@ export class IndexPage extends BasePage {
         ></skill-chart>  
       </div>
       </section> 
+      <section class="experience">
+        <title-of-section>Experiencia</title-of-section>
+        <div style="display: grid; gap: 2rem; grid-template-columns: 1fr; max-width: 900px; margin: 0 auto;">
+          <experience-card
+            company="Innpix"
+            role="Desarrollador Fullstack"
+            period="2022 - Actualidad"
+            description="Desarrollo de soluciones web personalizadas para pymes y emprendedores, liderando el diseño, desarrollo y soporte técnico."
+          ></experience-card>
+          <experience-card
+            company="Agencia Creativa XYZ"
+            role="Frontend Developer"
+            period="2021 - 2022"
+            description="Implementación de interfaces accesibles y optimizadas en proyectos de alto impacto, colaborando con equipos multidisciplinarios."
+          ></experience-card>
+          <experience-card
+            company="Startup ABC"
+            role="Scrum Master / Dev"
+            period="2020 - 2021"
+            description="Gestión ágil de proyectos, facilitando la comunicación y entrega continua, además de contribuir en el desarrollo frontend."
+          ></experience-card>
+        </div>
+      </section>
     `;
   }
 }
